@@ -11,7 +11,7 @@ GOTP was inspired by [PyOTP][PyOTP].
 ## Installation
 
 ```
-$ go get github.com/goapt/gotp
+go get github.com/goapt/gotp
 ```
 
 ## Usage
