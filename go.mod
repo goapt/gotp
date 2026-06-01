@@ -1,3 +1,3 @@
-module github.com/xlzd/gotp
+module github.com/goapt/gotp
 
-go 1.17
+go 1.20

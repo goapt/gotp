@@ -1,6 +1,6 @@
-# GOTP - The Golang One-Time Password Library
+> Fork: [github.com/xlzd/gotp](https://github.com/xlzd/gotp)
 
-[![build-status][build-status]][build-status] ![MIT License][license-badge]
+# GOTP - The Golang One-Time Password Library
 
 GOTP is a Golang package for generating and verifying one-time passwords. It can be used to implement two-factor (2FA) or multi-factor (MFA) authentication methods in anywhere that requires users to log in.
 
@@ -8,16 +8,15 @@ Open MFA standards are defined in [RFC 4226][RFC 4226] (HOTP: An HMAC-Based One-
 
 GOTP was inspired by [PyOTP][PyOTP].
 
-
 ## Installation
 
 ```
-$ go get github.com/xlzd/gotp
+$ go get github.com/goapt/gotp
 ```
 
 ## Usage
 
-Check API docs at https://godoc.org/github.com/xlzd/gotp
+Check API docs at https://godoc.org/github.com/goapt/gotp
 
 ### Time-based OTPs
 
@@ -99,11 +98,3 @@ func main() {
 ## License
 
 GOTP is licensed under the [MIT License][License]
-
-
-[build-status]: https://travis-ci.org/xlzd/gotp.svg?branch=master
-[license-badge]:   https://img.shields.io/badge/license-MIT-000000.svg
-[RFC 4226]: https://tools.ietf.org/html/rfc4226 "RFC 4226"
-[RFC 6238]: https://tools.ietf.org/html/rfc6238 "RFC 6238"
-[PyOTP]: https://github.com/pyotp/pyotp
-[License]: https://github.com/xlzd/gotp/blob/master/LICENSE
