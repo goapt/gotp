@@ -7,14 +7,21 @@ import (
 var hotp = NewDefaultHOTP("4S62BZNFXXSZLCRO")
 
 func TestHOTP_At(t *testing.T) {
-	otp := hotp.At(12345)
+	otp, err := hotp.At(12345)
+	if err != nil {
+		t.Fatalf("HOTP At error: %v", err)
+	}
 	if otp != "194001" {
-		t.Error("HOTP generate otp error")
+		t.Errorf("HOTP generate otp error, got %s", otp)
 	}
 }
 
 func TestHOTP_Verify(t *testing.T) {
-	if !hotp.Verify("194001", 12345) {
-		t.Error("verify faild")
+	ok, err := hotp.Verify("194001", 12345)
+	if err != nil {
+		t.Fatalf("HOTP Verify error: %v", err)
+	}
+	if !ok {
+		t.Error("verify failed")
 	}
 }
