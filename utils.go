@@ -19,17 +19,19 @@ Returns the provisioning URI for the OTP; works for either TOTP or HOTP.
 This can then be encoded in a QR Code and used to provision the Google Authenticator app.
 For module-internal use.
 See also:
-    https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+
+	https://github.com/google/google-authenticator/wiki/Key-Uri-Format
 
 params:
-    otpType：     otp type, must in totp/hotp
-    secret:       the hotp/totp secret used to generate the URI
-    accountName:  name of the account
-    issuerName:   the name of the OTP issuer; this will be the organization title of the OTP entry in Authenticator
-    algorithm:    the algorithm used in the OTP generation
-    initialCount: starting counter value. Only works for hotp
-    digits:       the length of the OTP generated code.
-    period:       the number of seconds the OTP generator is set to expire every code.
+
+	otpType：     otp type, must in totp/hotp
+	secret:       the hotp/totp secret used to generate the URI
+	accountName:  name of the account
+	issuerName:   the name of the OTP issuer; this will be the organization title of the OTP entry in Authenticator
+	algorithm:    the algorithm used in the OTP generation
+	initialCount: starting counter value. Only works for hotp
+	digits:       the length of the OTP generated code.
+	period:       the number of seconds the OTP generator is set to expire every code.
 
 returns: provisioning uri
 */
@@ -39,10 +41,10 @@ func BuildUri(otpType, secret, accountName, issuerName, algorithm string, initia
 	if otpType != OtpTypeHotp && otpType != OtpTypeTotp {
 		panic("otp type error, got " + otpType)
 	}
-	label := url.PathEscape(accountName)
+	label := accountName
 	if issuerName != "" {
-		label = url.PathEscape(issuerName) + ":" + label
-		q.Set("issuer", url.QueryEscape(issuerName))
+		label = issuerName + ":" + label
+		q.Set("issuer", issuerName)
 	}
 	q.Set("secret", secret)
 	if algorithm != "" && algorithm != "sha1" {

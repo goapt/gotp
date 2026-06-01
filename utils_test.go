@@ -9,13 +9,13 @@ func TestBuildUri(t *testing.T) {
 		"totp",
 		"4S62BZNFXXSZLCRO",
 		"xlzd",
-		"SomeOrg",
+		"Some Org",
 		"sha1",
 		0,
 		6,
 		0,
 	)
-	expected := "otpauth://totp/SomeOrg:xlzd?issuer=SomeOrg&secret=4S62BZNFXXSZLCRO"
+	expected := "otpauth://totp/Some%20Org:xlzd?issuer=Some+Org&secret=4S62BZNFXXSZLCRO"
 	if s != expected {
 		t.Errorf("BuildUri test failed.\n\texpected: %s,\n\tactual: %s", expected, s)
 	}
